@@ -1,3 +1,4 @@
+import { alfastroyPreset } from './alfastroy';
 import { gornizaPreset } from './gorniza';
 import { metalPreset } from './metal';
 import type { DemoPreset } from './types';
@@ -7,6 +8,7 @@ const PRESETS: Record<string, DemoPreset> = {
   metal: metalPreset,
   gorniza: gornizaPreset,
   uniapart: uniapartPreset,
+  alfastroy: alfastroyPreset,
 };
 
 /** Пресет выбирается при сборке: `vite --mode gorniza` читает `.env.gorniza`. */

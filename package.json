@@ -13,7 +13,10 @@
     "deploy:gorniza": "tsc -b && vite build --mode gorniza --base=/fakt/gorniza/ --outDir dist-gorniza && gh-pages -d dist-gorniza -e gorniza --add",
     "dev:uniapart": "vite --mode uniapart --port 5183",
     "build:uniapart": "tsc -b && vite build --mode uniapart --outDir dist-uniapart",
-    "deploy:uniapart": "tsc -b && vite build --mode uniapart --base=/fakt/uniapart/ --outDir dist-uniapart && gh-pages -d dist-uniapart -e uniapart --add"
+    "deploy:uniapart": "tsc -b && vite build --mode uniapart --base=/fakt/uniapart/ --outDir dist-uniapart && gh-pages -d dist-uniapart -e uniapart --add",
+    "dev:alfastroy": "vite --mode alfastroy --port 5184",
+    "build:alfastroy": "tsc -b && vite build --mode alfastroy --outDir dist-alfastroy",
+    "deploy:alfastroy": "tsc -b && vite build --mode alfastroy --base=/fakt/alfastroy/ --outDir dist-alfastroy && gh-pages -d dist-alfastroy -e alfastroy --add"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",

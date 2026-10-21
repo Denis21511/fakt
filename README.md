@@ -30,6 +30,10 @@ npm run deploy:gorniza  # публикация в https://denis21511.github.io/f
 npm run dev:uniapart     # дизайн и ремонт, Сочи, http://localhost:5183
 npm run build:uniapart   # сборка в dist-uniapart/
 npm run deploy:uniapart  # публикация в https://denis21511.github.io/fakt/uniapart/
+
+npm run dev:alfastroy     # ремонт и строительство, Северск/Томск, http://localhost:5184
+npm run build:alfastroy   # сборка в dist-alfastroy/
+npm run deploy:alfastroy  # публикация в https://denis21511.github.io/fakt/alfastroy/
 ```
 
 Все `deploy` выкладывают с `--add`, чтобы не стирать друг друга в ветке `gh-pages`.
