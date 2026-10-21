@@ -41,6 +41,7 @@ import { money, orderNo, pct, plural, signedPoints } from '../lib/format';
 import { useOrder, useStore } from '../lib/store';
 import { useOrderForm } from '../lib/uiStore';
 import type { Expense, Order, OrderStatus } from '../lib/types';
+import { PRESET } from '../lib/presets';
 
 type Confirm =
   | { kind: 'delete-order' }
@@ -715,7 +716,7 @@ function Deviations({ order, lines }: { order: Order; lines: CategoryLine[] }) {
             id="dev-note"
             className="input textarea"
             rows={2}
-            placeholder="Например: подорожал металл у поставщика, понадобилась дополнительная смена"
+            placeholder={PRESET.copy.deviationPlaceholder}
             value={note}
             maxLength={400}
             onChange={(e) => setNoteDraft(e.target.value)}

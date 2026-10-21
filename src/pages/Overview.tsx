@@ -19,6 +19,7 @@ import { formatDate, inPeriod, periodLabel } from '../lib/dates';
 import { money, orderNo, ordersWord, pct, signedMoney } from '../lib/format';
 import { useStore } from '../lib/store';
 import type { Granularity, Order } from '../lib/types';
+import { PRESET } from '../lib/presets';
 
 const GRAN_OPTIONS: { value: Granularity; label: string }[] = [
   { value: 'week', label: 'Неделя' },
@@ -62,7 +63,7 @@ export function Overview() {
   if (!orders.length) {
     return (
       <div className="page">
-        <PageHeader title="Обзор производства" subtitle="Прибыль под контролем. Каждый заказ в цифрах." actions={<NewOrderButton />} />
+        <PageHeader title={PRESET.copy.overviewTitle} subtitle="Прибыль под контролем. Каждый заказ в цифрах." actions={<NewOrderButton />} />
         <div className="panel">
           <EmptyState
             icon={<ClipboardList size={22} />}
@@ -92,7 +93,7 @@ export function Overview() {
   return (
     <div className="page">
       <PageHeader
-        title="Обзор производства"
+        title={PRESET.copy.overviewTitle}
         subtitle="Прибыль под контролем. Каждый заказ в цифрах."
         actions={
           <>

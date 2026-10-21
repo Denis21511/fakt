@@ -8,6 +8,7 @@ import { Modal } from './Modal';
 import { MoneyInput } from './MoneyInput';
 import { toast } from './Toast';
 import { Field, Select, cx } from './ui';
+import { PRESET } from '../lib/presets';
 
 export function ExpenseFormModal({
   order,
@@ -115,7 +116,7 @@ export function ExpenseFormModal({
           <input
             id="e-name"
             className="input"
-            placeholder="Например, профтруба 60×40 — 24 м"
+            placeholder={PRESET.copy.expenseNamePlaceholder}
             value={name}
             aria-invalid={!!shown.name || undefined}
             onChange={(e) => setName(e.target.value)}

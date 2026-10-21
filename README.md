@@ -18,3 +18,14 @@ npm run build    # проверка типов и сборка в dist/
 и не синхронизируются между устройствами. Демо-данные восстанавливаются в «Настройках».
 
 Формулы расчёта — в `src/lib/calc.ts`.
+
+**Пресеты демо.** Данные и отраслевые тексты лежат в `src/lib/presets/`; по умолчанию — металлообработка.
+Пресет выбирается режимом Vite (`.env.<режим>`), у каждого свой ключ localStorage:
+
+```bash
+npm run dev:gorniza     # студия интерьерного дизайна, http://localhost:5182
+npm run build:gorniza   # сборка в dist-gorniza/
+npm run deploy:gorniza  # публикация в https://denis21511.github.io/fakt/gorniza/
+```
+
+Оба `deploy` выкладывают с `--add`, чтобы не стирать друг друга в ветке `gh-pages`.

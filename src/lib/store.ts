@@ -4,8 +4,9 @@ import { setMoneyConfig } from './format';
 import { uid } from './id';
 import { buildDemoOrders, DEFAULT_CATEGORIES, DEFAULT_SETTINGS, DEMO_NEXT_NUMBER } from './seed';
 import type { Category, Expense, Granularity, Order, OrderStatus, PeriodKey, PlannedCost, Settings } from './types';
+import { PRESET } from './presets';
 
-export const STORAGE_KEY = 'fakt:data:v1';
+export const STORAGE_KEY = PRESET.storageKey;
 
 export interface OrderInput {
   title: string;

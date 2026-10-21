@@ -11,6 +11,7 @@ import { Modal } from './Modal';
 import { MoneyInput } from './MoneyInput';
 import { toast } from './Toast';
 import { AnimatedNumber, Field, Segmented, Select, cx } from './ui';
+import { PRESET } from '../lib/presets';
 
 interface Row {
   key: string;
@@ -211,7 +212,7 @@ function OrderForm({ order, onClose }: { order: Order | undefined; onClose: () =
               <input
                 id="f-title"
                 className="input"
-                placeholder="Например, лестница на второй этаж"
+                placeholder={PRESET.copy.orderTitlePlaceholder}
                 value={f.title}
                 aria-invalid={!!shown.title || undefined}
                 onChange={(e) => set('title', e.target.value)}

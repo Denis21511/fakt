@@ -8,6 +8,7 @@ import { Segmented, cx } from '../components/ui';
 import { money, ordersWord, plural } from '../lib/format';
 import { isCategoryUsed, STORAGE_KEY, useStore } from '../lib/store';
 import type { Category, CurrencyDisplay } from '../lib/types';
+import { PRESET } from '../lib/presets';
 
 export function SettingsPage() {
   const settings = useStore((s) => s.settings);
@@ -115,7 +116,7 @@ export function SettingsPage() {
             <div className={cx('inline-form', newCatError && 'field--error')}>
               <input
                 className="input"
-                placeholder="Новая категория, например «Аренда оборудования»"
+                placeholder={PRESET.copy.categoryPlaceholder}
                 aria-label="Название новой категории"
                 value={newCat}
                 maxLength={60}
@@ -221,7 +222,7 @@ export function SettingsPage() {
         open={confirm === 'reset'}
         tone="primary"
         title="Восстановить демо-данные?"
-        text="Все текущие заказы, расходы, категории и настройки будут заменены демонстрационным набором мастерской. Это действие нельзя отменить."
+        text={`Все текущие заказы, расходы, категории и настройки будут заменены демонстрационным набором ${PRESET.copy.demoOwner}. Это действие нельзя отменить.`}
         confirmLabel="Восстановить"
         onConfirm={() => {
           resetDemo();
