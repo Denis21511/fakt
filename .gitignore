@@ -1,0 +1,7 @@
+node_modules
+dist
+*.tsbuildinfo
+
+# Локальные настройки и база лидов — не публикуются
+.claude/
+leads/
