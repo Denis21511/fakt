@@ -26,6 +26,10 @@ npm run build    # проверка типов и сборка в dist/
 npm run dev:gorniza     # студия интерьерного дизайна, http://localhost:5182
 npm run build:gorniza   # сборка в dist-gorniza/
 npm run deploy:gorniza  # публикация в https://denis21511.github.io/fakt/gorniza/
+
+npm run dev:uniapart     # дизайн и ремонт, Сочи, http://localhost:5183
+npm run build:uniapart   # сборка в dist-uniapart/
+npm run deploy:uniapart  # публикация в https://denis21511.github.io/fakt/uniapart/
 ```
 
-Оба `deploy` выкладывают с `--add`, чтобы не стирать друг друга в ветке `gh-pages`.
+Все `deploy` выкладывают с `--add`, чтобы не стирать друг друга в ветке `gh-pages`.
