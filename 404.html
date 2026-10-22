@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="ru">
   <head>
+    <script>
+      // Адреса приложения TRACE (/fakt/trace/...) передаём ему
+      (function () {
+        var p = '/fakt/trace/';
+        if (location.pathname.indexOf(p) === 0) location.replace(p + '?r=' + encodeURIComponent(location.pathname.slice(p.length) + location.search) + location.hash);
+      })();
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/fakt/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
