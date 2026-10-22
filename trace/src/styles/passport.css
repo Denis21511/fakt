@@ -1,0 +1,572 @@
+/* ═════════ Цифровой паспорт — то, что видит покупатель ═════════ */
+
+.passport-shell {
+  container-type: inline-size;
+}
+
+.passport {
+  --pp-pad: 20px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.pp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px var(--pp-pad);
+  border-bottom: 1px solid var(--rule);
+}
+.pp-maker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.pp-maker__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pp-trace {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+.pp-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  margin-bottom: 14px;
+  padding: 0 10px;
+  border-radius: var(--radius-xs);
+  background: var(--brand);
+  color: var(--brand-ink);
+  font-size: 12.5px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.pp-hero {
+  padding: 24px var(--pp-pad) 22px;
+}
+.pp-cat {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.pp-name {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.pp-photo {
+  position: relative;
+  margin-top: 20px;
+}
+.pp-photo .pimg {
+  aspect-ratio: 1;
+  border-radius: 10px;
+}
+.pp-photo > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Шильд: как металлическая табличка на изделии */
+.pp-plate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 14px 0 0;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+}
+.pp-plate__cell {
+  padding: 10px 14px 11px;
+  min-width: 0;
+}
+.pp-plate__cell + .pp-plate__cell:not(.pp-plate__cell--wide + .pp-plate__cell) {
+  border-left: 1px solid var(--ink);
+}
+.pp-plate__cell--wide {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--ink);
+}
+.pp-plate__cell--wide:last-child {
+  border-bottom: 0;
+}
+.pp-plate dt {
+  font-size: 12px;
+  color: var(--muted);
+}
+.pp-plate dd {
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.pp-plate__cell--wide dd {
+  font-size: 19px;
+  letter-spacing: 0.02em;
+}
+.pp-desc {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #45483f;
+}
+
+.pp-warranty {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 var(--pp-pad);
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--paper);
+}
+.pp-warranty__dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--muted-2);
+}
+.pp-warranty__text {
+  display: grid;
+  gap: 1px;
+}
+.pp-warranty__text strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+.pp-warranty__text span {
+  font-size: 14px;
+  opacity: 0.78;
+}
+.pp-warranty--active,
+.pp-warranty--expiring {
+  background: var(--brand);
+  color: var(--brand-ink);
+}
+.pp-warranty--active .pp-warranty__dot {
+  background: currentColor;
+}
+.pp-warranty--expiring .pp-warranty__dot {
+  background: var(--warn);
+  box-shadow: 0 0 0 2px #fff;
+}
+.pp-warranty--expired {
+  background: var(--danger-soft);
+}
+.pp-warranty--expired .pp-warranty__dot {
+  background: var(--danger);
+}
+.pp-warranty--pending .pp-warranty__dot {
+  background: var(--info);
+}
+
+.pp-section {
+  padding: 30px var(--pp-pad) 0;
+}
+.pp-h {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--ink);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pp-h__num {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.pp-kv {
+  margin: 0;
+}
+.pp-kv__row {
+  display: grid;
+  grid-template-columns: minmax(110px, 40%) 1fr;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14.5px;
+}
+.pp-kv__row dt {
+  color: var(--muted);
+}
+.pp-kv__row dd {
+  margin: 0;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.pp-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pp-list li {
+  position: relative;
+  padding: 11px 0 11px 22px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14.5px;
+}
+.pp-list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 19px;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--ink);
+}
+
+.pp-muted {
+  padding: 14px 0;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.pp-docs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pp-doc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.pp-doc__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 12px 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+.pp-doc__main:disabled {
+  cursor: default;
+}
+.pp-doc__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  background: var(--graphite);
+  color: var(--brand);
+}
+.pp-doc__icon svg {
+  width: 19px;
+  height: 19px;
+}
+.pp-doc__text {
+  display: grid;
+  min-width: 0;
+}
+.pp-doc__title {
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.35;
+}
+.pp-doc__main:not(:disabled):hover .pp-doc__title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pp-doc__meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+.pp-doc__dl {
+  flex: none;
+}
+
+.pp-terms {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #45483f;
+}
+
+.pp-maker-name {
+  display: grid;
+  gap: 2px;
+  padding: 14px 0 4px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+}
+.pp-maker-name span {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: 14px;
+  color: var(--muted);
+}
+.pp-contacts {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pp-contacts a,
+.pp-contacts__static {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14.5px;
+  text-decoration: none;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.pp-contacts a:hover span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pp-contacts svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--muted);
+}
+.pp-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  margin-top: 18px;
+  border-radius: 10px;
+  background: var(--graphite);
+  color: #fff;
+  font-weight: 650;
+  font-size: 15px;
+  text-decoration: none;
+}
+.pp-call svg {
+  width: 18px;
+  height: 18px;
+  color: var(--brand);
+}
+.pp-call:hover {
+  background: var(--graphite-3);
+}
+
+.pp-foot {
+  display: grid;
+  gap: 6px;
+  margin-top: 32px;
+  padding: 20px var(--pp-pad) 28px;
+  border-top: 1px solid var(--rule);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.pp-foot__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+/* Широкий экран: шильд и фото слева, разделы справа */
+@container (min-width: 860px) {
+  .passport {
+    --pp-pad: 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: start;
+  }
+  .pp-top,
+  .pp-foot {
+    grid-column: 1 / -1;
+  }
+  .pp-top {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .pp-hero {
+    grid-column: 1;
+    grid-row: 2 / span 12;
+    position: sticky;
+    top: 0;
+    padding: 36px 32px 40px var(--pp-pad);
+  }
+  .pp-name {
+    font-size: 38px;
+  }
+  .pp-warranty {
+    grid-column: 2;
+    margin: 36px var(--pp-pad) 0 8px;
+  }
+  .pp-section {
+    grid-column: 2;
+    padding: 36px var(--pp-pad) 0 8px;
+  }
+  .pp-call {
+    max-width: 320px;
+  }
+}
+
+/* ═════════ Публичная страница паспорта ═════════ */
+
+.public-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--paper);
+}
+.public-page .passport-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+@media (min-width: 700px) {
+  .public-page {
+    padding: 32px 24px 48px;
+  }
+  .public-page .passport {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    overflow: clip;
+  }
+}
+.public-note {
+  max-width: 1120px;
+  margin: 16px auto 0;
+  padding: 0 20px 24px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+}
+.public-note a {
+  color: var(--ink);
+}
+
+.pp-state {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  background: var(--paper);
+}
+.pp-state__card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  width: min(440px, 100%);
+  padding: 40px 28px 32px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--rule);
+  text-align: center;
+}
+.pp-state__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 8px;
+}
+.pp-state__icon svg {
+  width: 28px;
+  height: 28px;
+}
+.pp-state__title {
+  font-size: 24px;
+  font-weight: 800;
+}
+.pp-state__text {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.pp-state__token {
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  font-size: 13px;
+}
+.pp-state__foot {
+  margin-top: 18px;
+}
+
+/* ═════════ Рамка телефона для предпросмотров ═════════ */
+
+.phone {
+  position: relative;
+  width: 360px;
+  max-width: 100%;
+  height: 700px;
+  padding: 10px;
+  border-radius: 40px;
+  background: var(--graphite);
+  box-shadow: 0 0 0 1px #000 inset;
+}
+.phone__screen {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 31px;
+  background: var(--surface);
+  scrollbar-width: none;
+}
+.phone__screen::-webkit-scrollbar {
+  display: none;
+}
+.phone__notch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 2;
+  width: 92px;
+  height: 24px;
+  margin-left: -46px;
+  border-radius: 12px;
+  background: var(--graphite);
+}
+.phone .pp-top {
+  padding-top: 46px;
+}
+.phone .passport {
+  font-size: 14px;
+}
+
+.passport .avatar {
+  background: var(--brand);
+  color: var(--brand-ink);
+}

@@ -1,0 +1,42 @@
+.print-root {
+  display: none;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body > *:not(.print-root) {
+    display: none !important;
+  }
+  .print-root {
+    display: block !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-label svg {
+    display: block;
+  }
+  .print-root--roll .print-label {
+    break-after: page;
+    page-break-after: always;
+  }
+  .print-root--roll .print-label:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .print-root--a4 {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4mm;
+  }
+  .print-root--a4 .print-label {
+    break-inside: avoid;
+    outline: 0.2mm dashed #b9bcb3;
+    outline-offset: 1mm;
+  }
+}

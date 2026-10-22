@@ -1,0 +1,189 @@
+/* ───────── Логотип ───────── */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--logo-size, 28px) * 0.36);
+  text-decoration: none;
+}
+.logo__word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: calc(var(--logo-size, 28px) * 0.62);
+  letter-spacing: 0.16em;
+  line-height: 1;
+  /* Компенсация трекинга последней буквы — знак выглядит по центру строки */
+  margin-right: -0.16em;
+}
+.logo--dark .logo__word {
+  color: var(--graphite);
+}
+.logo--light .logo__word {
+  color: #fff;
+}
+
+/* ───────── Аватар компании ───────── */
+
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--lime);
+  color: var(--graphite);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* ───────── Угловые метки ───────── */
+
+.corner-marks {
+  position: absolute;
+  inset: var(--cm-inset, 0);
+  pointer-events: none;
+}
+.cm {
+  position: absolute;
+  width: var(--cm-size, 14px);
+  height: var(--cm-size, 14px);
+  border: 0 solid var(--cm-color, var(--ink));
+}
+.cm--tl {
+  top: 0;
+  left: 0;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+.cm--tr {
+  top: 0;
+  right: 0;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+.cm--bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+.cm--br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+/* ───────── Изображение изделия ───────── */
+
+.pimg {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #ebece5;
+  border-radius: var(--radius);
+  aspect-ratio: 1;
+}
+.pimg__drawing {
+  width: 100%;
+  height: 100%;
+}
+.pimg__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pimg__empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: var(--muted-2);
+  font-size: 13px;
+}
+.pimg__empty svg {
+  width: 26px;
+  height: 26px;
+}
+.pimg--thumb {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--radius-sm);
+}
+.pimg--thumb .pimg__empty svg {
+  width: 17px;
+  height: 17px;
+}
+.pimg__loading {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--rule-strong);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+/* ───────── Служебные экраны ───────── */
+
+.page-fallback {
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  color: var(--muted);
+}
+
+.standalone {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 24px;
+}
+.standalone__logo {
+  justify-self: start;
+  text-decoration: none;
+}
+
+.lost {
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  max-width: 460px;
+  padding: 48px 0;
+  text-align: center;
+}
+.lost__code {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 104px;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+.lost__title {
+  font-size: 30px;
+  font-weight: 800;
+}
+.lost__text {
+  color: var(--muted);
+  font-size: 16px;
+}
+.lost__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
