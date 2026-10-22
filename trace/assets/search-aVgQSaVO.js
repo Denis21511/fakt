@@ -1,0 +1,1 @@
+const n=e=>e.toLowerCase().replace(/ё/g,"е").replace(/[«»"]/g,""),s=e=>n(e).replace(/[\s\-./_]/g,"");function o(e,t){const c=n(t.trim());if(!c)return!0;const r=s(t);return n(e.name).includes(c)||n(e.model).includes(c)||r.length>0&&(s(e.sku).includes(r)||s(e.serial).includes(r))}function u(e,t){return e.filter(c=>o(c,t))}export{o as m,u as s};

@@ -1,0 +1,1 @@
+import{j as s,b as n}from"./index-DfdmEzHO.js";function i({children:a,className:r,label:e}){return s.jsxs("div",{className:n("phone",r),"aria-label":e,role:e?"region":void 0,children:[s.jsx("span",{className:"phone__notch","aria-hidden":!0}),s.jsx("div",{className:"phone__screen passport-shell",children:a})]})}export{i as P};
